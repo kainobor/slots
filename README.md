@@ -10,9 +10,9 @@ POST /api/machines/atkins-diet/spins
 Request is JWT token with this payload:
 ```json
 {
-	uid: “asfasf”,  // user id
-	chips: 10000, // chips balance
-	bet: 1000 // bet size
+    "uid": “some_user_ID”,
+    "chips": 10000,
+    "bet": 1000
 }
 ```
 
@@ -32,9 +32,9 @@ Result:
         }
     ],
     "jwt": {
-    	uid: “asfasf”,  // user id
-	    chips: 10000,
-	    bet: 1000
+        "uid": “some_user_ID”,
+        "chips": 9800,
+        "bet": 1000
     }
 }
 ```

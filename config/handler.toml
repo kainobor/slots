@@ -1,0 +1,7 @@
+port = 8080
+
+freeRollsByOneAddiction = 10
+
+spinURL = "/api/machines/atkins-diet/spins"
+
+secret = "supersecret111"

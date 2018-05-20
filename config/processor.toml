@@ -1,0 +1,74 @@
+lines = [
+    [2,2,2,2,2],
+    [1,1,1,1,1],
+    [3,3,3,3,3],
+    [1,2,3,2,1],
+    [3,2,1,2,3],
+    [2,1,1,1,2],
+    [2,3,3,3,2],
+    [1,1,2,3,3],
+    [3,3,2,1,1],
+    [2,1,2,3,2],
+    [2,3,2,1,2],
+    [1,2,2,2,1],
+    [3,2,2,2,3],
+    [1,2,1,2,1],
+    [3,2,3,2,3],
+    [2,2,1,2,2],
+    [2,2,3,2,2],
+    [1,1,3,1,1],
+    [3,3,1,3,3],
+    [1,3,3,3,1],
+]
+
+reels = [
+	["Scale","Mayonnaise","Ham","Ham","Bacon"],
+	["Mayonnaise","BuffaloWings","Butter","Cheese","Scale"],
+	["Ham","Steak","Eggs","Atkins","Steak"],
+	["Sausage","Sausage","Scale","Scale","Ham"],
+	["Bacon","Cheese","Cheese","Butter","Cheese"],
+	["Eggs","Mayonnaise","Mayonnaise","Bacon","Sausage"],
+	["Cheese","Ham","Butter","Cheese","Butter"],
+	["Mayonnaise","Butter","Ham","Sausage","Bacon"],
+	["Sausage","Bacon","Sausage","Steak","BuffaloWings"],
+	["Butter","Steak","Bacon","Eggs","Cheese"],
+	["BuffaloWings","Sausage","Steak","Bacon","Sausage"],
+	["Bacon","Mayonnaise","BuffaloWings","Mayonnaise","Ham"],
+	["Eggs","Ham","Butter","Sausage","Butter"],
+	["Mayonnaise","Atkins","Mayonnaise","Cheese","Steak"],
+	["Steak","Butter","Cheese","Butter","Mayonnaise"],
+	["BuffaloWings","Eggs","Sausage","Ham","Eggs"],
+	["Butter","Cheese","Eggs","Mayonnaise","Sausage"],
+	["Cheese","Bacon","Bacon","Bacon","Ham"],
+	["Eggs","Sausage","Mayonnaise","BuffaloWings","Atkins"],
+	["Atkins","BuffaloWings","BuffaloWings","Sausage","Butter"],
+	["Bacon","Scale","Ham","Cheese","BuffaloWings"],
+	["Mayonnaise","Mayonnaise","Sausage","Eggs","Mayonnaise"],
+	["Ham","Butter","Bacon","Butter","Eggs"],
+	["Cheese","Cheese","Cheese","BuffaloWings","Ham"],
+	["Eggs","Bacon","Eggs","Bacon","Bacon"],
+	["Scale","Eggs","Atkins","Mayonnaise","Butter"],
+	["Butter","BuffaloWings","BuffaloWings","Eggs","Steak"],
+	["Bacon","Mayonnaise","Bacon","Ham","Mayonnaise"],
+	["Sausage","Steak","Butter","Sausage","Sausage"],
+	["BuffaloWings","Ham","Cheese","Steak","Eggs"],
+	["Steak","Cheese","Mayonnaise","Mayonnaise","Cheese"],
+	["Butter","Bacon","Steak","Bacon","BuffaloWings"],
+]
+
+mutableCell = "Atkins"
+
+emptyCell = "Scale"
+
+# For 5, 4, 3 and 2 overlaps
+[prices]
+    Atkins = [5, 50, 500, 5000]
+    Steak = [3, 40, 200, 1000]
+    Ham = [2, 30, 150, 500]
+    BuffaloWings = [2, 25, 100, 300]
+    Sausage = [0, 20, 75, 200]
+    Eggs = [0, 20, 75, 200]
+    Butter = [0, 15, 50, 100]
+    Cheese = [0, 15, 50, 100]
+    Bacon = [0, 10, 25, 50]
+    Mayonnaise = [0, 10, 25, 50]

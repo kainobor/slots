@@ -10,7 +10,7 @@ POST /api/machines/atkins-diet/spins
 Request is JWT token with this payload:
 ```json
 {
-    "uid": “some_user_ID”,
+    "uid": "some_user_ID",
     "chips": 10000,
     "bet": 1000
 }
@@ -19,12 +19,12 @@ Request is JWT token with this payload:
 Result:
 ```json
 {
-    "total": 0, - total win
+    "total": 0, # total win
     "spins": [
         {
-            "type": "main", // can be main or free spins
-            "total": 0, // winning in spin
-            "stops": [ // real stops
+            "type": "main", # can be main or free spins
+            "total": 0, # winning in spin
+            "stops": [ # real stops
                 13,
                 18,
                 9
@@ -32,7 +32,7 @@ Result:
         }
     ],
     "jwt": {
-        "uid": “some_user_ID”,
+        "uid": "some_user_ID",
         "chips": 9800,
         "bet": 1000
     }

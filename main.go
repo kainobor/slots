@@ -2,8 +2,12 @@ package main
 
 import (
     "fmt"
-    "github.com/gorilla/mux"
     "net/http"
+    "os"
+    "os/signal"
+    "syscall"
+
+    "github.com/gorilla/mux"
 
     "github.com/kainobor/slots/config"
     "github.com/kainobor/slots/src/handler"
@@ -24,7 +28,6 @@ func main() {
         panic("Can't read config")
     }
 
-    logger.Log("CONF", "CO", conf.Handler)
     proc := processor.New(conf.Processor)
 
     h := handler.New(conf, proc)
@@ -33,8 +36,22 @@ func main() {
     r.HandleFunc(conf.Handler.SpinURL, h.Spins).Methods(http.MethodPost)
 
     logger.Log("Start to listen")
-    err = http.ListenAndServe(fmt.Sprintf(":%d", conf.Handler.Port), r)
-    if err != nil {
-        logger.Err("can't start handler", "error", err)
+
+    // Parallelize handling by ports
+    for _, port := range conf.Handler.Ports {
+        go func(port int) {
+            err = http.ListenAndServe(fmt.Sprintf(":%d", port), r)
+            if err != nil {
+                logger.Err("can't start handler", "error", err)
+            }
+        }(port)
+    }
+
+    // Wait until end
+    c := make(chan os.Signal, 1)
+    signal.Notify(c, syscall.SIGINT, syscall.SIGTERM, syscall.SIGHUP)
+    select {
+    case s := <-c:
+        logger.Log("End with signal %s", s.String())
     }
 }

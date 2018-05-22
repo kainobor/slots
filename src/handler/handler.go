@@ -29,6 +29,7 @@ const (
     SpinTypeFree = "free"
 )
 
+// New request handler with config and processor
 func New(conf *config.Config, proc *processor.Processor) *Handler {
     h := new(Handler)
     h.config = conf
@@ -38,6 +39,7 @@ func New(conf *config.Config, proc *processor.Processor) *Handler {
     return h
 }
 
+// Spins is main method for generates outcome and check it for wins
 func (h *Handler) Spins(w http.ResponseWriter, r *http.Request) {
     start := time.Now().UnixNano()
 
@@ -57,7 +59,10 @@ func (h *Handler) Spins(w http.ResponseWriter, r *http.Request) {
 
     resp := new(SpinResponse)
 
-    for i := 0; i <= 0; i++ {
+    freeSpins := 0
+    for freeSpins >= 0 {
+        freeSpins--
+
         outcome := h.proc.GenerateOutcome()
         spin, err := h.proc.CheckWins(outcome, pld.Bet)
         if err != nil {
@@ -70,7 +75,7 @@ func (h *Handler) Spins(w http.ResponseWriter, r *http.Request) {
         spin.Type = SpinTypeMain
         if spin.IsFree {
             spin.Type = SpinTypeFree
-            i = i - h.config.Handler.FreeRollsByOneAddiction
+            freeSpins = freeSpins + h.config.Handler.FreeRollsByOneAddiction
         }
 
         resp.Total = resp.Total + spin.Total

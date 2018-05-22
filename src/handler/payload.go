@@ -8,6 +8,7 @@ import (
     "net/http"
 )
 
+// PayloadClaims is type for processing bet data
 type PayloadClaims struct {
     Uid   string `json:"uid"`
     Chips int64  `json:"chips"`
@@ -15,6 +16,7 @@ type PayloadClaims struct {
     jwt.StandardClaims
 }
 
+// Valid current request values
 func (p *PayloadClaims) Valid() error {
     if p.Bet > p.Chips {
         return errors.New("Bet is too big")
@@ -23,6 +25,7 @@ func (p *PayloadClaims) Valid() error {
     return nil
 }
 
+// newPayload generate payload from request
 func newPayload(r *http.Request, secret []byte) (*PayloadClaims, error) {
     body, err := ioutil.ReadAll(r.Body)
     if err != nil {

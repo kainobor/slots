@@ -8,12 +8,14 @@ import (
     "github.com/kainobor/slots/config"
 )
 
+// Processor processing outcomes
 type Processor struct {
     config       *config.ProcessorConfig
     random       *rand.Rand
     outcomeLines int
 }
 
+// SpinResult is struct for storing result of current spin
 type SpinResult struct {
     Type   string `json:"type"`
     Total  int64  `json:"total"`
@@ -21,6 +23,7 @@ type SpinResult struct {
     IsFree bool
 }
 
+// New processor with config "c"
 func New(c *config.ProcessorConfig) *Processor {
     p := new(Processor)
     p.config = c
@@ -40,6 +43,7 @@ func New(c *config.ProcessorConfig) *Processor {
     return p
 }
 
+// GenerateOutcome return random outcome of display symbols
 func (p *Processor) GenerateOutcome() (outcome []string) {
     for reelNum := 0; reelNum < len(p.config.Lines[0]); reelNum++ {
         cellNum := p.random.Intn(len(p.config.Reels))
@@ -55,6 +59,7 @@ func (p *Processor) GenerateOutcome() (outcome []string) {
     return
 }
 
+// CheckWins returns results of current outcome and bet
 func (p *Processor) CheckWins(outcome []string, bet int64) (*SpinResult, error) {
     var posInOutcome int
     res := new(SpinResult)

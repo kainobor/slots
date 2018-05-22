@@ -21,7 +21,7 @@ type ProcessorConfig struct {
 
 type HandlerConfigs struct {
     FreeRollsByOneAddiction int
-    Port                    int
+    Ports                   []int
     SpinURL                 string
     Secret                  string
 }

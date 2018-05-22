@@ -19,7 +19,7 @@ Request is JWT token with this payload:
 Result:
 ```javascript
 {
-    "total": 0, # total win
+    "total": 0, // total win
     "spins": [
         {
             "type": "main", // can be main or free spins

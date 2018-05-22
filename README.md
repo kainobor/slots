@@ -8,7 +8,7 @@ It should be REST api with 1 implemented action to create SPIN
 POST /api/machines/atkins-diet/spins
 
 Request is JWT token with this payload:
-```json
+```javascript
 {
     "uid": "some_user_ID",
     "chips": 10000,
@@ -17,14 +17,14 @@ Request is JWT token with this payload:
 ```
 
 Result:
-```json
+```javascript
 {
     "total": 0, # total win
     "spins": [
         {
-            "type": "main", # can be main or free spins
-            "total": 0, # winning in spin
-            "stops": [ # real stops
+            "type": "main", // can be main or free spins
+            "total": 0, // winning in spin
+            "stops": [ // real stops
                 13,
                 18,
                 9

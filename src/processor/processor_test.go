@@ -129,6 +129,18 @@ func TestCheck(t *testing.T) {
 			stops: []int{1, 16, 17},
 			err:   nil,
 		},
+		{
+			outcome: []string{
+				BuffaloWings, Steak, Butter,
+				Mayonnaise, Ham, Atkins,
+				Butter, Mayonnaise, Cheese,
+				Steak, Mayonnaise, Bacon,
+				Sausage, Eggs, Cheese,
+			},
+			total: 115,
+			stops: []int{7, 11, 19, 20},
+			err:   nil,
+		},
 	}
 
 	for _, a := range assertions {
